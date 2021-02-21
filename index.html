@@ -6,20 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="shortcut icon" href="img/favicon.ico" />
         <title>Leanderson Monteiro</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-        <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
-        <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/responsive.css">
-		
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 		<script type="text/javascript">
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -28,66 +16,303 @@
             ga('create', 'UA-101725535-1', 'auto');
             ga('send', 'pageview');
         </script>
+        <style>
+            body {
+                padding-top: 30px;
+                padding-bottom: 30px;
+                padding-left: 100px;
+                padding-right: 100px;
+                border-radius: 10px;
+            }
+
+            .image {
+                border-radius: 50%;
+            }
+            .row {
+                margin-top: 10px;
+                text-align: justify;
+                min-height: 90px;
+                padding-bottom: 5px;
+            }
+            .body-content {
+                background-color: #efeeee;
+                border-radius: 10px;
+            }
+            .stack {
+                font-size: 12px;
+                font-weight: bolder;
+            }
+            .social-links {
+                min-height: 30px;
+                margin-top: 120px;
+            }
+            .navbar {
+                position: fixed !important;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                opacity: 100;
+                z-index: 9999;
+            }
+            section:before {
+                height: 54px;
+                content: "";
+                display:block;
+            }
+            @media print
+            {    
+                .row {
+                    margin-top: 0px;
+                }
+                .no-print, .no-print *
+                {
+                    display: none !important;
+                }
+            }
+        </style>
     </head>
     <body>
-        
-        <!--================Home Banner Area =================-->
-        <section class="home_banner_area">
-           	<div class="container box_1620">
-           		<div class="banner_inner d-flex align-items-center">
-					<div class="banner_content">
-						<div class="media">
-							<div class="d-flex">
-								<img src="img/personal.jpeg" alt="" width="500px">
-							</div>
-							<div class="media-body">
-								<div class="personal_text">
-									<h6>Hello Everybody, i am</h6>
-									<h3>Leanderson Monteiro</h3>
-									<h4>Senior Software Engineer</h4>
-									<p>Proactivity, responsibility, I like to participate in the project from start to finish, since planning, architecture,
-									development, delivery and maintenance. Solid knowledge in PHP, Javascript and knowledge to a pleno developer OutSystems.
-									Experience since 2010 in systems development, always seeking to improve my knowledge in search of news and quality in
-									software development.</p>
-									<ul class="list basic_info">
-										<li><a href="#"><i class="lnr lnr-calendar-full"></i> 10st June, 1992</a></li>
-										<li><a href="#"><i class="lnr lnr-phone-handset"></i> +351 917 447 583</a></li>
-										<li><a href="#"><i class="lnr lnr-envelope"></i> leanderson@lmonteiroms.com</a></li>
-										<li><a href="#"><i class="lnr lnr-home"></i> Lisbon, Portugal</a></li>
-									</ul>
-									<ul class="list personal_social">
-										<li><a href="https://github.com/leommsilva" title="Github" target="_blank"><i class="fa fa-github"></i></a></li>
-										<li><a href="https://twitter.com/lmonteiroms" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="https://www.linkedin.com/in/leanderson-monteiro-65271a47/" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-										<li><a href="skype:leandersonmmsilva?add" title="Skype" target="_blank"><i class="fa fa-skype"></i></a></li>
-										<li><a href="https://drive.google.com/file/d/1YLiIO5_PwJ5EPQhDYAyCcZ48VX2vT-R9/view?usp=sharing" title="Resume" target="_blank"><i class="fa fa-file"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#home">Leanderson Monteiro</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#experiences">Experiences</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="cv/leanderson_monteiro_cv.pdf" download="leanderson_monteiro_cv.pdf" target="_blank" >Download CV</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <section id="home">
+            <div class="row mt-4">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <img src="img/personal2.png" class="image" width="200px" alt="">
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h1>LEANDERSON <span>MONTEIRO</span></h1>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>Software Engineer</h3>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h6>Bachelor of computer science</h6>
+                </div>
             </div>
         </section>
-        <!--================End Home Banner Area =================-->
-        
-        
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/stellar.js"></script>
-        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="vendors/isotope/isotope.pkgd.min.js"></script>
-        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="vendors/popup/jquery.magnific-popup.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-        <script src="vendors/counter-up/jquery.counterup.min.js"></script>
-        <script src="js/mail-script.js"></script>
-        <script src="js/theme.js"></script>
+        <section id="about">
+            <div class="row">
+                <div class="col-md-2 d-flex flex-row-reverse">
+                    <h2>About</h2>
+                </div>
+                <div class="col-md-10 body-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Hello everyone.</p>
+                            <p>My name is Leanderson Monteiro, I'm is passionate for the technology world, I started my journey on my bachelor of computer science in January 2010 and finished this course in december 2014.</p>
+                            <p>More about me, I'm proactivity, sense of responsibility, I like to participate at the beginning of the project, since planning, architecture, development, delivery and maintenance, but I have already started working on several ongoing projects where I had easy adaptation. Solid knowledge in PHP, Javascript and OutSystems. Experience since 2010 in systems development, always seeking to improve my knowledge in search of news and quality in software development.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Hire me,</h4>
+                                    <ul class="list basic_info">
+                                        <li><a href="#">10st June, 1992</a></li>
+                                        <li><a href="#">+351 917 447 583</a></li>
+                                        <li><a href="mailto:leanderson@lmonteiroms.com">leanderson@lmonteiroms.com</a></li>
+                                        <li><a href="#">Lisbon, Portugal</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row social-links no-print">
+                                <div class="col-md-3 d-flex justify-content-center">
+                                    <a href="https://github.com/leommsilva" title="Github" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+                                </div>
+                                <div class="col-md-3 d-flex justify-content-center">
+                                    <a href="https://twitter.com/lmonteiroms" title="Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                                </div>
+                                <div class="col-md-3 d-flex justify-content-center">
+                                    <a href="https://www.linkedin.com/in/leanderson-monteiro-65271a47/" title="LinkedIn" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+                                </div>
+                                <div class="col-md-3 d-flex justify-content-center">
+                                    <a href="skype:leandersonmmsilva?add" title="Skype" target="_blank"><i class="fa fa-skype fa-2x"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
+            <div class="row">
+                <div class="col-md-2 d-flex flex-row-reverse">
+                    <h2>Skills</h2>
+                </div>
+                <div class="col-md-10">
+                    <div class="row body-content">
+                        <div class="col-md-6">
+                            <strong>Languages the programmation and marcation</strong>
+                            <ul>
+                                <li>PHP, CSS, ES6, HTML, NodJS, Javascript</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Database</strong>
+                            <ul>
+                                <li>MySQL, MsSQL, PgSQL, MongoDB, MariaDB</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-6">
+                            <strong>Framework/Libraries</strong>
+                            <ul>
+                                <li>Laravel, Lumen, OutSystems, React, Angular, NodeJS, Codeigniter, Zend framework, CakePHP,
+                                    jQuery, Bootstrap</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Versioning</strong>
+                            <ul>
+                                <li>GIT, SVN</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-6">
+                            <strong>API's</strong>
+                            <ul>
+                                <li>Google, Facebook, Pagar.me, PagSeguro, Booking, AWS(S3), Stripe, Braintree</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Methodology and Design Patterns</strong>
+                            <ul>
+                                <li>Scrum, XP, RestFul, Agile</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-6">
+                            <strong>CMS</strong>
+                            <ul>
+                                <li>Wordpress, Drupal, October</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Tests</strong>
+                            <ul>
+                                <li>PHPUnit, TDD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="experiences">
+            <div class="row">
+                <div class="col-md-2 d-flex flex-row-reverse">
+                    <h2>Experiences</h2>
+                </div>
+                <div class="col-md-10">
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Full stack Developer</h3>
+                            <span>At EDP (Outsourced by Novabase)</span>
+                            <p>August 2019 - Present</p>
+                            <span class="stack">Stack: PHP, RestFul, Angular 7/8, Git Flow, Jenkins, CI/CD, Unit tests, Agile Development, Scrum</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Backend Developer</h3>
+                            <span>At EDP (Outsourced by Novabase)</span>
+                            <p>March 2019 - July 2019</p>
+                            <span class="stack">Stack: PHP, Rest, SOAP, Integrations, Git, Agile Development, Scrum</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Senior Software Engineer</h3>
+                            <span>At Novabase</span>
+                            <p>March 2019 - Present</p>
+                            <p>I'm work in novabase how outsourced in clients.</p>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Senior Software Engineer</h3>
+                            <span>At Doinn</span>
+                            <p>December 2017 - March 2019</p>
+                            <span class="stack">Stack: PHP, HTML, Javascript, JQuery, Laravel, MySQL, API RestFul, PHPUnit and integrations with others APIs</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Pleno web developer</h3>
+                            <span>At Group Ser Educational</span>
+                            <p>December 2016 - December 2017</p>
+                            <span class="stack">Stack: Outsystems 9, PHP, Zend framework 1.X, MySQL, MsSQL, HTML, CSS, Javascript</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Back-end developer</h3>
+                            <span>At Planedia</span>
+                            <p>May 2015 - November 2016</p>
+                            <span class="stack">Stack: PHP, Laravel 4.x / 5.x, MySQL, MongoDB, ElasticSearch, create API RestFul</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Software Engineer</h3>
+                            <span>At BankSystems</span>
+                            <p>May 2015 - November 2016</p>
+                            <span class="stack">Stack: PHP, CakePHP, Drupal, PgSQL, MySQL</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-6">
+                            <h3>Junior Web Developer</h3>
+                            <span>At Group Ser Educational</span>
+                            <p>July 2013 - September 2014</p>
+                            <span class="stack">Stack: Outsystems, PHP, Zend framework 1.X, MySQL, MsSQL, HTML, CSS, Javascript</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Web Developer</h3>
+                            <span>At Civis</span>
+                            <p>March 2012 - June 2013</p>
+                            <span class="stack">Stack: PHP, FacilMVP, CakePHP, MySQL, HTML, CSS, Javascript</span>
+                        </div>
+                    </div>
+                    <div class="row body-content">
+                        <div class="col-md-12">
+                            <h3>Internship Web Developer</h3>
+                            <span>At Receita Federal do Brasil</span>
+                            <p>October 2010 - March 2012</p>
+                            <span class="stack">Stack: PHP, MySQL, HTML, CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     </body>
 </html>
