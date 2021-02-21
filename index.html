@@ -17,8 +17,9 @@
             ga('create', 'UA-101725535-1', 'auto');
             ga('send', 'pageview');
 
-            if (location.protocol !== 'https:') {
-                // location.replace(`https:${location.href.substring(location.protocol.length)}`);
+            const url =location.href;
+            if (location.protocol !== 'https:' && (url.includes('lmonteiroms'))) {
+                location.replace(`https:${location.href.substring(location.protocol.length)}`);
             }
         </script>
     </head>
