@@ -15,6 +15,10 @@
             })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
             ga('create', 'UA-101725535-1', 'auto');
             ga('send', 'pageview');
+
+            if (location.protocol !== 'https:') {
+                location.replace(`https:${location.href.substring(location.protocol.length)}`);
+            }
         </script>
         <style>
             body {
