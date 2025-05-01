@@ -1,456 +1,1571 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Leanderson Monteiro</title>
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leanderson Monteiro | Software Engineer</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <script type="text/javascript">
-      (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.google-analytics.com/analytics.js",
-        "ga"
-      );
-      ga("create", "UA-101725535-1", "auto");
-      ga("send", "pageview");
-
-      const url = location.href;
-      if (location.protocol !== "https:" && url.includes("lmonteiroms")) {
-        location.replace(
-          `https:${location.href.substring(location.protocol.length)}`
-        );
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --text-color: #333;
+        --light-bg: #f5f5f5;
+        --dark-bg: #2c3e50;
+        --white: #ffffff;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
       }
-    </script>
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        color: var(--text-color);
+        background-color: var(--light-bg);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background-color: var(--dark-bg);
+        color: var(--white);
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--box-shadow);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: var(--white);
+        text-decoration: none;
+        transition: var(--transition);
+        padding: 5px 10px;
+        border-radius: var(--border-radius);
+      }
+
+      nav ul li a:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .language-selector {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+      }
+
+      .language-btn {
+        background: none;
+        border: none;
+        color: var(--white);
+        cursor: pointer;
+        padding: 5px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+        transition: var(--transition);
+      }
+
+      .language-btn.active {
+        opacity: 1;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .language-btn:hover {
+        opacity: 1;
+      }
+
+      .language-divider {
+        color: var(--white);
+        margin: 0 5px;
+      }
+
+      .hero {
+        padding: 150px 0 80px;
+        text-align: center;
+      }
+
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--white);
+        box-shadow: var(--box-shadow);
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 15px;
+      }
+
+      .social-links a {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        color: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        display: inline-block;
+        padding-bottom: 10px;
+        position: relative;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 3px;
+        background-color: var(--secondary-color);
+      }
+
+      .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-info {
+        flex: 1;
+        min-width: 300px;
+        background-color: var(--white);
+        padding: 25px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+
+      .info-item {
+        margin-bottom: 15px;
+      }
+
+      .info-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .info-item i {
+        color: var(--secondary-color);
+        width: 25px;
+        margin-right: 10px;
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .skill-card {
+        background-color: var(--white);
+        padding: 25px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 8px;
+        display: inline-block;
+      }
+
+      .skill-card ul {
+        list-style: none;
+      }
+
+      .skill-card ul li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+      }
+
+      .skill-card ul li::before {
+        content: "•";
+        color: var(--secondary-color);
+        font-weight: bold;
+        display: inline-block;
+        width: 15px;
+        margin-right: 5px;
+      }
+
+      .experience-timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .experience-timeline::after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        background-color: var(--secondary-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        padding: 20px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background-color: var(--white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        position: relative;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .timeline-content::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: var(--white);
+        border: 4px solid var(--secondary-color);
+        border-radius: 50%;
+        top: 20px;
+        z-index: 1;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::after {
+        right: -50px;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content::after {
+        left: -50px;
+      }
+
+      .timeline-date {
+        color: var(--secondary-color);
+        font-weight: bold;
+      }
+
+      .timeline-title {
+        margin: 10px 0;
+        color: var(--primary-color);
+      }
+
+      .timeline-company {
+        font-style: italic;
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      .timeline-summary {
+        margin-bottom: 15px;
+      }
+
+      .timeline-details {
+        display: none;
+        border-top: 1px dashed #ddd;
+        margin-top: 15px;
+        padding-top: 15px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-details.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .timeline-details ul {
+        list-style: none;
+        margin-top: 10px;
+      }
+
+      .timeline-details ul li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .timeline-details ul li::before {
+        content: "→";
+        color: var(--secondary-color);
+        position: absolute;
+        left: 0;
+      }
+
+      .timeline-tech {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tech-tag {
+        background-color: rgba(52, 152, 219, 0.1);
+        color: var(--secondary-color);
+        padding: 3px 10px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+      }
+
+      .expand-indicator {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+      }
+
+      .expand-indicator i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .timeline-content.expanded .expand-indicator i {
+        transform: rotate(180deg);
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--secondary-color);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--white);
+        padding: 12px 25px;
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--secondary-color);
+        color: var(--secondary-color);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--secondary-color);
+        color: var(--white);
+      }
+
+      .download-cv {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      footer {
+        background-color: var(--dark-bg);
+        color: var(--white);
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 60px;
+      }
+
+      .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        margin: 20px 0;
+      }
+
+      .footer-links a {
+        color: var(--white);
+        margin: 0 10px;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-color);
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--secondary-color);
+        color: var(--white);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        opacity: 0;
+        transition: var(--transition);
+        box-shadow: var(--box-shadow);
+        z-index: 99;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+      }
+
+      .back-to-top:hover {
+        background-color: #2980b9;
+        transform: translateY(-3px);
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav {
+          margin-top: 15px;
+        }
+
+        nav ul {
+          flex-direction: column;
+          display: none;
+        }
+
+        nav ul.show {
+          display: flex;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+
+        .language-selector {
+          margin: 15px 0 0;
+          justify-content: center;
+        }
+
+        .hero {
+          padding: 120px 0 60px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-right: 20px;
+          padding-left: 70px;
+        }
+
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+
+        .experience-timeline::after {
+          left: 40px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after,
+        .timeline-item:nth-child(even) .timeline-content::after {
+          left: -40px;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#home">Leanderson Monteiro</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#experiences">Experiences</a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="cv/leanderson_monteiro_cv.pdf"
-              download="leanderson_monteiro_cv.pdf"
-              target="_blank"
-              >Download CV</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="row mt-4" id="home">
-      <div class="col-md-12 d-flex justify-content-center">
-        <img src="img/personal2.png" class="image" width="200px" alt="" />
-      </div>
-      <div class="col-md-12 d-flex justify-content-center my-name">
-        LEANDERSON MONTEIRO
-      </div>
-      <div class="col-md-12 d-flex justify-content-center">
-        <h3>Software Engineer</h3>
-      </div>
-      <div class="col-md-12 d-flex justify-content-center">
-        <h6>Bachelor of computer science</h6>
-      </div>
-    </div>
-    <section id="about">
-      <div class="row">
-        <div class="col-md-2 d-flex flex-row-reverse">
-          <h2>About</h2>
+    <!-- Header -->
+    <header id="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Leanderson Monteiro</div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav>
+            <ul id="navMenu">
+              <li><a href="#home" data-i18n="nav.home">Home</a></li>
+              <li><a href="#about" data-i18n="nav.about">About</a></li>
+              <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+              <li>
+                <a href="#experience" data-i18n="nav.experience">Experience</a>
+              </li>
+              <li>
+                <a
+                  href="cv/profile_leanderson_monteiro.pdf"
+                  class="downloadCV"
+                  data-i18n="contact.download"
+                  >Download CV</a
+                >
+              </li>
+              <li class="language-selector">
+                <button id="en-btn" class="language-btn active">EN</button>
+                <span class="language-divider">|</span>
+                <button id="pt-btn" class="language-btn">PT</button>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div class="col-md-10 body-content">
-          <div class="row">
-            <div class="col-md-6">
-              <p>Hello everyone.</p>
-              <p>
-                My name is Leanderson Monteiro, I'm is passionate for the
-                technology world, I started my journey on my bachelor of
-                computer science in January 2010 and finished this course in
-                december 2014.
-              </p>
-              <p>
-                More about me, I'm proactivity, sense of responsibility, I like
-                to participate at the beginning of the project, since planning,
-                architecture, development, delivery and maintenance, but I have
-                already started working on several ongoing projects where I had
-                easy adaptation. Solid knowledge in PHP, Javascript and
-                OutSystems. Experience since 2010 in systems development, always
-                seeking to improve my knowledge in search of news and quality in
-                software development.
-              </p>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D03AQEriWOnkWcbcQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1680602846364?e=1751500800&v=beta&t=T92jcMr3YbV3pZNiJur7XZYwx0BtOc1hhQhtxJ3MTZU"
+          alt="Leanderson Monteiro"
+          class="profile-img"
+        />
+        <h1>LEANDERSON MONTEIRO</h1>
+        <h2>Software Engineer</h2>
+        <p data-i18n="hero.education">Bachelor of Computer Science</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/leommsilva/" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/leommsilva" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="mailto:leanderson@lmonteiroms.com"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="about.title">About Me</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p data-i18n="about.p1">
+              Hello! I'm Leanderson Monteiro, passionate about the technology
+              world. I started my journey in computer science in January 2010
+              and completed the course in December 2014.
+            </p>
+            <p data-i18n="about.p2">
+              I'm proactive, have a sense of responsibility, and I like to
+              participate from the beginning of the project, including planning,
+              architecture, development, delivery, and maintenance. I have
+              already worked on several ongoing projects where I had easy
+              adaptation.
+            </p>
+            <p data-i18n="about.p3">
+              I have solid knowledge in PHP, JavaScript, and OutSystems. I have
+              experience since 2010 in systems development, always seeking to
+              improve my knowledge in search of news and quality in software
+              development.
+            </p>
+          </div>
+          <div class="about-info">
+            <div class="info-item">
+              <i class="fas fa-calendar"></i>
+              <span data-i18n="about.birthdate"
+                >Date of Birth: June 10, 1992</span
+              >
             </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-12">
-                  <h4>Hire me,</h4>
-                  <ul class="list basic_info">
-                    <li><a href="#">10st June, 1992</a></li>
-                    <li><a href="#">+351 917 447 583</a></li>
-                    <li>
-                      <a href="mailto:leanderson@lmonteiroms.com"
-                        >leanderson@lmonteiroms.com</a
-                      >
-                    </li>
-                    <li><a href="#">Lisbon, Portugal</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row social-links no-print">
-                <div class="col-md-3 d-flex justify-content-center">
-                  <a
-                    href="https://github.com/leommsilva"
-                    title="Github"
-                    target="_blank"
-                    ><i class="fa fa-github fa-2x"></i
-                  ></a>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center">
-                  <a
-                    href="https://twitter.com/lmonteiroms"
-                    title="Twitter"
-                    target="_blank"
-                    ><i class="fa fa-twitter fa-2x"></i
-                  ></a>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center">
-                  <a
-                    href="https://www.linkedin.com/in/leanderson-monteiro-65271a47/"
-                    title="LinkedIn"
-                    target="_blank"
-                    ><i class="fa fa-linkedin fa-2x"></i
-                  ></a>
-                </div>
-                <div class="col-md-3 d-flex justify-content-center">
-                  <a
-                    href="skype:leandersonmmsilva?add"
-                    title="Skype"
-                    target="_blank"
-                    ><i class="fa fa-skype fa-2x"></i
-                  ></a>
-                </div>
-              </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <span data-i18n="about.phone">Phone: +351 917 447 583</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <span data-i18n="about.email"
+                >Email: leanderson@lmonteiroms.com</span
+              >
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span data-i18n="about.location">Location: Lisbon, Portugal</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-globe"></i>
+              <span data-i18n="about.website"
+                >Website:
+                <a href="https://lmonteiroms.com" target="_blank"
+                  >lmonteiroms.com</a
+                ></span
+              >
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="skills">
-      <div class="row">
-        <div class="col-md-2 d-flex flex-row-reverse">
-          <h2>Skills</h2>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="skills.title">Skills</h2>
         </div>
-        <div class="col-md-10">
-          <div class="row body-content">
-            <div class="col-md-6">
-              <strong>Languages the programmation and marcation</strong>
-              <ul>
-                <li>PHP, CSS, ES6, HTML, NodJS, Javascript</li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <strong>Database</strong>
-              <ul>
-                <li>MySQL, MsSQL, PgSQL, MongoDB, MariaDB</li>
-              </ul>
-            </div>
+        <div class="skills-container">
+          <div class="skill-card">
+            <h3 data-i18n="skills.languages">Languages</h3>
+            <ul>
+              <li>PHP</li>
+              <li>CSS</li>
+              <li>Dart</li>
+              <li>ES6</li>
+              <li>NodeJS</li>
+            </ul>
           </div>
-          <div class="row body-content">
-            <div class="col-md-6">
-              <strong>Framework/Libraries</strong>
-              <ul>
-                <li>
-                  Laravel, Lumen, OutSystems, React, Angular, NodeJS,
-                  Codeigniter, Zend framework, CakePHP, jQuery, Bootstrap
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <strong>Versioning</strong>
-              <ul>
-                <li>GIT, SVN</li>
-              </ul>
-            </div>
+          <div class="skill-card">
+            <h3 data-i18n="skills.database">Database</h3>
+            <ul>
+              <li>MySQL</li>
+              <li>MsSQL</li>
+              <li>PostgreSQL</li>
+              <li>ElasticSearch</li>
+              <li>MongoDB</li>
+              <li>MariaDB</li>
+            </ul>
           </div>
-          <div class="row body-content">
-            <div class="col-md-6">
-              <strong>API's</strong>
-              <ul>
-                <li>
-                  Google, Facebook, Pagar.me, PagSeguro, Booking, AWS(S3),
-                  Stripe, Braintree
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <strong>Methodology and Design Patterns</strong>
-              <ul>
-                <li>Scrum, XP, RestFul, Agile</li>
-              </ul>
-            </div>
+          <div class="skill-card">
+            <h3 data-i18n="skills.frameworks">Frameworks/Libraries</h3>
+            <ul>
+              <li>Laravel</li>
+              <li>OutSystems</li>
+              <li>Lumen</li>
+              <li>React</li>
+              <li>Flutter</li>
+              <li>Angular</li>
+              <li>NodeJS</li>
+              <li>CodeIgniter</li>
+              <li>Zend Framework</li>
+              <li>CakePHP</li>
+              <li>jQuery</li>
+              <li>Bootstrap</li>
+            </ul>
           </div>
-          <div class="row body-content">
-            <div class="col-md-6">
-              <strong>CMS</strong>
-              <ul>
-                <li>Wordpress, Drupal, October</li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <strong>Tests</strong>
-              <ul>
-                <li>PHPUnit, TDD</li>
-              </ul>
-            </div>
+          <div class="skill-card">
+            <h3 data-i18n="skills.versioning">Versioning</h3>
+            <ul>
+              <li>GIT</li>
+              <li>SVN</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
-    <section id="experiences">
-      <div class="row">
-        <div class="col-md-2 d-flex flex-row-reverse">
-          <h2>Experiences</h2>
-        </div>
-        <div class="col-md-10">
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Technical Lead</h3>
-              <span>At EDP (Outsourced by Novabase)</span>
-              <p>March 2021 - Present</p>
-              <span class="stack">
-                <p>
-                  Tech leader in some projects with this stack: PHP, RestFul,
-                  Angular 7/8, Git Flow, Jenkins, CI/CD, Unit tests, Agile
-                  Development, Scrum.
-                </p>
 
-                <p>My responsabilities is :</p>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="experience.title">Experience</h2>
+        </div>
+        <div class="experience-timeline">
+          <!-- Experience 9 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp9">
+              <div class="timeline-date">08/2021 - Present</div>
+              <h3 class="timeline-title">Software Architect</h3>
+              <div class="timeline-company">
+                Fidelidade (Outsourced by 5Estações)
+              </div>
+              <p class="timeline-summary" data-i18n="experience.desc9">
+                Worked with the architecture team to evolve platforms, ensuring
+                quality, integration, security, and alignment with Agile
+                methodology and technical requirements.
+              </p>
+              <div class="timeline-details" id="details-exp9">
                 <ul>
-                  <li>
-                    Ensure the quality of all technical deliverables of its
-                    application.
+                  <li data-i18n="experience.details9.1">
+                    I worked alongside the architecture team, contributing to
+                    the evolution and governance of the technological platforms
+                    supporting the company’s development. I assisted in defining
+                    best practices, conducting audits, and training teams to
+                    ensure code quality and architectural alignment. I
+                    collaborated with the architecture team to define the
+                    foundation of the digital platform, implement reusable
+                    components, and ensure integration with core business
+                    systems. I participated in the evolution of non-functional
+                    requirements, such as authentication and authorization,
+                    while enhancing infrastructure reliability through testing
+                    tools and automated anomaly detection.
                   </li>
-                  <li>
-                    Apply the principles of software engineering to the design,
-                    development, maintenance, testing, and evaluation of
-                    software.
-                  </li>
-                  <li>
-                    Ensure that the application is designed and implemented
-                    taking into account the performance and SLAs required by
-                    business.
-                  </li>
-                  <li>
-                    Know the technical aspects of the application (Architecture,
-                    Infra, ...) as well as the functional and contextual
-                    aspects.
-                  </li>
-                  <li>
-                    Create the conditions to have the application in a
-                    Continuous Integration/Continuous Delivery (CI/CD) automated
-                    mode.
-                  </li>
-                  <li>
-                    Identify and maintain a clear backlog of the technical debt
-                    in order to help the Product Owner prioritize and decrease
-                    the overall product technical debt.
-                  </li>
-                  <li>Lead the technical evolution of the application.</li>
-                  <li>
-                    Ensure that the application and the team follows the
-                    Security, Development, Architecture and Business Continuity
-                    guidelines and rules, includes security vulnerability
-                    resolution.
-                  </li>
-                  <li>
-                    Align with the Platform Expert and Solution Master to
-                    implement the guidelines and frameworks defined by EDP.
-                  </li>
-                  <li>
-                    Ensure that the correct documentation of the application,
-                    including all the CI of the application are registered and
-                    up-to-date in the CMDB (ServiceNow).
-                  </li>
-                  <li>
-                    Manage its application infra-structure cost and consumption.
-                  </li>
-                  <li>
-                    Identify the monitoring and alerts needed to manage the
-                    application while ensuring the application is monitored via
-                    Centro de Comando.
-                  </li>
-                  <li>
-                    Continue the development of the system in parallel with the
-                    team on some tasks.
+                  <li data-i18n="experience.details9.2">
+                    I helped manage data archiving and masking in non-production
+                    environments, coordinated governance meetings, and monitored
+                    KPIs to ensure compliance with industry standards. I worked
+                    with cross-functional teams to manage environments and
+                    contributed to the continuous improvement of DevOps
+                    processes, ensuring full alignment with Agile methodology,
+                    security, and performance requirements.
                   </li>
                 </ul>
-              </span>
+                <div class="timeline-tech">
+                  <span class="tech-tag">OutSystems</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">Integrations</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Full stack Developer</h3>
-              <span>At EDP (Outsourced by Novabase)</span>
-              <p>August 2019 - March 2021</p>
-              <span class="stack"
-                >Stack: PHP, RestFul, Angular 7/8, Git Flow, Jenkins, CI/CD,
-                Unit tests, Agile Development, Scrum</span
-              >
+
+          <!-- Experience 8 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp8">
+              <div class="timeline-date">03/2019 - 08/2021</div>
+              <h3 class="timeline-title">Tech Lead | Software Engineer</h3>
+              <div class="timeline-company">EDP (Outsourced by Novabase)</div>
+              <p class="timeline-summary" data-i18n="experience.desc8">
+                Lead app evolution, ensuring CI/CD, code quality, performance,
+                security, monitoring, and alignment with business and
+                architecture standards.
+              </p>
+              <div class="timeline-details" id="details-exp8">
+                <ul>
+                  <li data-i18n="experience.details8.1">
+                    As a Software Engineer, I am responsible for ensuring the
+                    quality of all technical deliverables within the
+                    application, applying solid software engineering principles
+                    across design, development, maintenance, testing, and
+                    evaluation. I ensure the application meets performance
+                    expectations and business-defined SLAs, while having a deep
+                    understanding of its technical architecture, infrastructure,
+                    and functional context. I lead the technical evolution of
+                    the system, fostering a CI/CD-ready environment and ensuring
+                    compliance with security, development, architectural, and
+                    business continuity guidelines—including the resolution of
+                    security vulnerabilities. I actively identify and manage
+                    technical debt, supporting the Product Owner in prioritizing
+                    improvements, and ensure alignment with Platform Experts and
+                    Solution Masters to follow established frameworks and best
+                    practices defined by EDP. I oversee application
+                    documentation and CI configurations within ServiceNow
+                    (CMDB), monitor infrastructure costs and resource
+                    consumption, and define the necessary monitoring and alert
+                    mechanisms to support operations by the command center. In
+                    parallel, I contribute to system development alongside the
+                    team, ensuring high-quality code and project standards.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">RestFul APIs</span>
+                  <span class="tech-tag">Angular 7/8</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">Unit Tests</span>
+                  <span class="tech-tag">Jenkins</span>
+                  <span class="tech-tag">CI/CD</span>
+                  <span class="tech-tag">Git</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Backend Developer</h3>
-              <span>At EDP (Outsourced by Novabase)</span>
-              <p>March 2019 - July 2019</p>
-              <span class="stack"
-                >Stack: PHP, Rest, SOAP, Integrations, Git, Agile Development,
-                Scrum</span
-              >
+
+          <!-- Experience 7 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp7">
+              <div class="timeline-date">12/2017 - 03/2019</div>
+              <h3 class="timeline-title">Senior Software Engineer</h3>
+              <div class="timeline-company">Doinn</div>
+              <p class="timeline-summary" data-i18n="experience.desc7">
+                Web developer maintaining PHP and OutSystems apps at Grupo Ser
+                Educacional, also involved in migrating the PHP system to the
+                OutSystems platform.
+              </p>
+              <div class="timeline-details" id="details-exp7">
+                <ul>
+                  <li data-i18n="experience.details7.1">
+                    Mainly responsible for backend development, I worked on
+                    integrations with various housing rental platforms such as
+                    Booking and Rentals United, among others. I consistently
+                    ensured high code quality, maintaining solid backend
+                    coverage with unit tests.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Laravel</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">RestFul APIs</span>
+                  <span class="tech-tag">PHPUnit</span>
+                  <span class="tech-tag">Integrations</span>
+                  <span class="tech-tag">Git</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Senior Software Engineer</h3>
-              <span>At Novabase</span>
-              <p>March 2019 - Present</p>
-              <p>I'm work in novabase how outsourced in clients.</p>
+
+          <!-- Experience 6 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp6">
+              <div class="timeline-date">12/2016 - 12/2017</div>
+              <h3 class="timeline-title">Web Developer Middle</h3>
+              <div class="timeline-company">Grupo Ser Educacional</div>
+              <p class="timeline-summary" data-i18n="experience.desc6">
+                Web developer maintaining PHP and OutSystems apps at Grupo Ser
+                Educacional, also involved in migrating the PHP system to the
+                OutSystems platform.
+              </p>
+              <div class="timeline-details" id="details-exp6">
+                <ul>
+                  <li data-i18n="experience.details6.1">
+                    Worked as a web developer, focusing on new feature
+                    development and maintenance across all applications of Grupo
+                    Ser Educacional. At that time, most of the group's systems
+                    were built with OutSystems, but one application was still in
+                    PHP. I was responsible for maintaining both the PHP and
+                    OutSystems applications, and also contributed to the initial
+                    stages of migrating the PHP application to the OutSystems
+                    platform.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">OutSystems</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Zend Framework 1.x</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">MsSQL</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">Git</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Senior Software Engineer</h3>
-              <span>At Doinn</span>
-              <p>December 2017 - March 2019</p>
-              <span class="stack"
-                >Stack: PHP, HTML, Javascript, JQuery, Laravel, MySQL, API
-                RestFul, PHPUnit and integrations with others APIs</span
-              >
+
+          <!-- Experience 5 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp5">
+              <div class="timeline-date">05/2015 - 11/2016</div>
+              <h3 class="timeline-title">Software Engineer</h3>
+              <div class="timeline-company">Planedia</div>
+              <p class="timeline-summary" data-i18n="experience.desc5">
+                Focused on backend, migrated Laravel 4.x to 5.x, created RESTful
+                API, integrated AWS S3 and Elasticsearch, using MySQL and
+                MongoDB for performance.
+              </p>
+              <div class="timeline-details" id="details-exp5">
+                <ul>
+                  <li data-i18n="experience.details5.1">
+                    Primarily focused on backend development, I maintained
+                    existing code and contributed to the migration from Laravel
+                    4.x to 5.x by decoupling the backend from the frontend and
+                    creating a RESTful API. I also integrated the system with
+                    AWS S3 and Elasticsearch. To enhance performance, the
+                    application leveraged both MySQL and MongoDB databases.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Laravel 4.X | 5.X</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">MongoDB</span>
+                  <span class="tech-tag">ElasticSearch</span>
+                  <span class="tech-tag">AWS(S3)</span>
+                  <span class="tech-tag">Git</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Pleno web developer</h3>
-              <span>At Group Ser Educational</span>
-              <p>December 2016 - December 2017</p>
-              <span class="stack"
-                >Stack: Outsystems 9, PHP, Zend framework 1.X, MySQL, MsSQL,
-                HTML, CSS, Javascript</span
-              >
+
+          <!-- Experience 4 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp4">
+              <div class="timeline-date">08/2014 - 03/2015</div>
+              <h3 class="timeline-title">Software Engineer</h3>
+              <div class="timeline-company">BankSystems Software Builder</div>
+              <p class="timeline-summary" data-i18n="experience.desc4">
+                Led three PHP projects from scratch to delivery, ensuring
+                quality and guiding a senior team new to the stack in a software
+                factory environment.
+              </p>
+              <div class="timeline-details" id="details-exp4">
+                <ul>
+                  <li data-i18n="experience.details4.1">
+                    As a Software Engineer and Tech Lead, I had the opportunity
+                    to lead three projects from inception to deployment for the
+                    end client. The main challenge was to ensure high quality in
+                    the software factory’s first projects using the PHP stack,
+                    while supporting a senior team that, despite their
+                    experience, was working with this technology stack for the
+                    first time.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">CakePHP</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">Git</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Back-end developer</h3>
-              <span>At Planedia</span>
-              <p>May 2015 - November 2016</p>
-              <span class="stack"
-                >Stack: PHP, Laravel 4.x / 5.x, MySQL, MongoDB, ElasticSearch,
-                create API RestFul</span
-              >
+
+          <!-- Experience 3 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp1">
+              <div class="timeline-date">07/2013 - 08/2014</div>
+              <h3 class="timeline-title">Web Developer Junior</h3>
+              <div class="timeline-company">Grupo Ser Educacional</div>
+              <p class="timeline-summary" data-i18n="experience.desc1">
+                Web developer at Grupo Ser Educacional, maintaining apps and
+                creating features; first experience with OutSystems on one of
+                the group's early projects.
+              </p>
+              <div class="timeline-details" id="details-exp1">
+                <ul>
+                  <li data-i18n="experience.details1.1">
+                    Worked as a web developer, developing new features and
+                    maintaining all applications for Grupo Ser Educacional.
+                    During this period, I also had my first contact with the
+                    OutSystems platform, contributing to one of the group's
+                    first applications built with it.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">OutSystems</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Zend Framework 1.x</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">MsSQL</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">SVN</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Software Engineer</h3>
-              <span>At BankSystems</span>
-              <h6>August 2014 - March 2015</h6>
-              <span class="stack"
-                >Stack: PHP, CakePHP, Drupal, PgSQL, MySQL</span
-              >
+
+          <!-- Experience 2 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp2">
+              <div class="timeline-date">03/2012 - 06/2023</div>
+              <h3 class="timeline-title">Web Developer</h3>
+              <div class="timeline-company">Civis Gestão Inteligente</div>
+              <p class="timeline-summary" data-i18n="experience.desc2">
+                Full stack developer responsible for maintaining client systems
+                and developing new features tailored to their specific needs.
+              </p>
+              <div class="timeline-details" id="details-exp2">
+                <ul>
+                  <li data-i18n="experience.details2.1">
+                    Working as a full stack developer at the time, my main
+                    responsibilities included maintaining client systems and
+                    developing new features based on their needs.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">FacilMVC</span>
+                  <span class="tech-tag">CakePHP</span>
+                  <span class="tech-tag">MySQL</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">SVN</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
-          <div class="row body-content">
-            <div class="col-md-6">
-              <h3>Junior Web Developer</h3>
-              <span>At Group Ser Educational</span>
-              <p>July 2013 - September 2014</p>
-              <span class="stack"
-                >Stack: Outsystems, PHP, Zend framework 1.X, MySQL, MsSQL, HTML,
-                CSS, Javascript</span
-              >
-            </div>
-          </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Web Developer</h3>
-              <span>At Civis</span>
-              <p>March 2012 - June 2013</p>
-              <span class="stack"
-                >Stack: PHP, FacilMVP, CakePHP, MySQL, HTML, CSS,
-                Javascript</span
-              >
-            </div>
-          </div>
-          <div class="row body-content">
-            <div class="col-md-12">
-              <h3>Internship Web Developer</h3>
-              <span>At Receita Federal do Brasil</span>
-              <p>October 2010 - March 2012</p>
-              <span class="stack">Stack: PHP, MySQL, HTML, CSS</span>
+
+          <!-- Experience 1 -->
+          <div class="timeline-item">
+            <div class="timeline-content" data-exp-id="exp3">
+              <div class="timeline-date">10/2010 - 03/2012</div>
+              <h3 class="timeline-title">Internship Web Developer</h3>
+              <div class="timeline-company">Receita Federal do Brasil</div>
+              <p class="timeline-summary" data-i18n="experience.desc3">
+                Developed inventory and document handling systems using PHP,
+                HTML, MySQL, and JS, while also providing technical support.
+              </p>
+              <div class="timeline-details" id="details-exp3">
+                <ul>
+                  <li data-i18n="experience.details3.1">
+                    First systems developed, with primary responsibility in
+                    technical support, while also implementing systems using
+                    PHP, HTML, MySQL, CSS, and JavaScript. Two systems were
+                    created: one for inventory management and another for
+                    handling document submissions for customer service.
+                  </li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">HTML</span>
+                  <span class="tech-tag">CSS</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+              </div>
+              <div class="expand-indicator">
+                <span data-i18n="experience.clickForDetails"
+                  >Click for details</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p data-i18n="footer.copyright">
+            &copy; 2025 Leanderson Monteiro. All rights reserved.
+          </p>
+          <div class="footer-links">
+            <a href="#home" data-i18n="nav.home">Home</a>
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#skills" data-i18n="nav.skills">Skills</a>
+            <a href="#experience" data-i18n="nav.experience">Experience</a>
+            <a
+              href="cv/profile_leanderson_monteiro.pdf"
+              class="downloadCV"
+              data-i18n="contact.download"
+              >Download CV</a
+            >
+          </div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/leommsilva/" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://github.com/" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="mailto:leanderson@lmonteiroms.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+      // Language translations
+      const translations = {
+        en: {
+          "nav.home": "Home",
+          "nav.about": "About",
+          "nav.skills": "Skills",
+          "nav.experience": "Experience",
+          "nav.contact": "Contact",
+          "hero.education": "Bachelor of Computer Science",
+          "about.title": "About Me",
+          "about.p1":
+            "Hello! I'm Leanderson Monteiro, passionate about the technology world. I started my journey in computer science in January 2010 and completed the course in December 2014.",
+          "about.p2":
+            "I'm proactive, have a sense of responsibility, and I like to participate from the beginning of the project, including planning, architecture, development, delivery, and maintenance. I have already worked on several ongoing projects where I had easy adaptation.",
+          "about.p3":
+            "I have solid knowledge in PHP, JavaScript, and OutSystems. I have experience since 2010 in systems development, always seeking to improve my knowledge in search of news and quality in software development.",
+          "about.birthdate": "Date of Birth: June 10, 1992",
+          "about.phone": "Phone: +351 917 447 583",
+          "about.email": "Email: leanderson@lmonteiroms.com",
+          "about.location": "Location: Lisbon, Portugal",
+          "about.website":
+            'Website: <a href="https://lmonteiroms.com" target="_blank">lmonteiroms.com</a>',
+          "skills.title": "Skills",
+          "skills.languages": "Languages",
+          "skills.database": "Database",
+          "skills.frameworks": "Frameworks/Libraries",
+          "skills.versioning": "Versioning",
+          "experience.title": "Experience",
+          "experience.desc9":
+            "Worked with the architecture team to evolve platforms, ensuring quality, integration, security, and alignment with Agile methodology and technical requirements.",
+          "experience.desc8":
+            "Lead app evolution, ensuring CI/CD, code quality, performance, security, monitoring, and alignment with business and architecture standards.",
+          "experience.desc7":
+            "Backend lead integrating with platforms like Booking and Rentals United, ensuring high code quality and strong unit test coverage.",
+          "experience.desc6":
+            "Web developer maintaining PHP and OutSystems apps at Grupo Ser Educacional, also involved in migrating the PHP system to the OutSystems platform.",
+          "experience.desc5":
+            "Focused on backend, migrated Laravel 4.x to 5.x, created RESTful API, integrated AWS S3 and Elasticsearch, using MySQL and MongoDB for performance.",
+          "experience.desc4":
+            "Led three PHP projects from scratch to delivery, ensuring quality and guiding a senior team new to the stack in a software factory environment.",
+          "experience.desc1":
+            "Web developer at Grupo Ser Educacional, maintaining apps and creating features; first experience with OutSystems on one of the group's early projects.",
+          "experience.desc2":
+            "Full stack developer responsible for maintaining client systems and developing new features tailored to their specific needs.",
+          "experience.desc3":
+            "Developed inventory and document handling systems using PHP, HTML, MySQL, and JS, while also providing technical support.",
+          "experience.clickForDetails": "Click for details",
+          "experience.hideDetails": "Hide details",
+          "experience.details9.1":
+            "I worked alongside the architecture team, contributing to the evolution and governance of the technological platforms supporting the company’s development. I assisted in defining best practices, conducting audits, and training teams to ensure code quality and architectural alignment. I collaborated with the architecture team to define the foundation of the digital platform, implement reusable components, and ensure integration with core business systems. I participated in the evolution of non-functional requirements, such as authentication and authorization, while enhancing infrastructure reliability through testing tools and automated anomaly detection.",
+          "experience.details9.2":
+            "I helped manage data archiving and masking in non-production environments, coordinated governance meetings, and monitored KPIs to ensure compliance with industry standards. I worked with cross-functional teams to manage environments and contributed to the continuous improvement of DevOps processes, ensuring full alignment with Agile methodology, security, and performance requirements.",
+          "experience.details8.1":
+            "As a Software Engineer, I am responsible for ensuring the quality of all technical deliverables within the application, applying solid software engineering principles across design, development, maintenance, testing, and evaluation. I ensure the application meets performance expectations and business-defined SLAs, while having a deep understanding of its technical architecture, infrastructure, and functional context. I lead the technical evolution of the system, fostering a CI/CD-ready environment and ensuring compliance with security, development, architectural, and business continuity guidelines—including the resolution of security vulnerabilities. I actively identify and manage technical debt, supporting the Product Owner in prioritizing improvements, and ensure alignment with Platform Experts and Solution Masters to follow established frameworks and best practices defined by EDP. I oversee application documentation and CI configurations within ServiceNow (CMDB), monitor infrastructure costs and resource consumption, and define the necessary monitoring and alert mechanisms to support operations by the command center. In parallel, I contribute to system development alongside the team, ensuring high-quality code and project standards.",
+          "experience.details7.1":
+            "Mainly responsible for backend development, I worked on integrations with various housing rental platforms such as Booking and Rentals United, among others. I consistently ensured high code quality, maintaining solid backend coverage with unit tests.",
+          "experience.details6.1":
+            "Worked as a web developer, focusing on new feature development and maintenance across all applications of Grupo Ser Educacional. At that time, most of the group's systems were built with OutSystems, but one application was still in PHP. I was responsible for maintaining both the PHP and OutSystems applications, and also contributed to the initial stages of migrating the PHP application to the OutSystems platform.",
+          "experience.details5.1":
+            "Primarily focused on backend development, I maintained existing code and contributed to the migration from Laravel 4.x to 5.x by decoupling the backend from the frontend and creating a RESTful API. I also integrated the system with AWS S3 and Elasticsearch. To enhance performance, the application leveraged both MySQL and MongoDB databases.",
+          "experience.details4.1":
+            "As a Software Engineer and Tech Lead, I had the opportunity to lead three projects from inception to deployment for the end client. The main challenge was to ensure high quality in the software factory’s first projects using the PHP stack, while supporting a senior team that, despite their experience, was working with this technology stack for the first time.",
+          "experience.details1.1":
+            "Worked as a web developer, developing new features and maintaining all applications for Grupo Ser Educacional. During this period, I also had my first contact with the OutSystems platform, contributing to one of the group's first applications built with it.",
+          "experience.details2.1":
+            "Working as a full stack developer at the time, my main responsibilities included maintaining client systems and developing new features based on their needs.",
+          "experience.details3.1":
+            "First systems developed, with primary responsibility in technical support, while also implementing systems using PHP, HTML, MySQL, CSS, and JavaScript. Two systems were created: one for inventory management and another for handling document submissions for customer service.",
+          "contact.title": "Contact",
+          "contact.name": "Name",
+          "contact.email": "Email",
+          "contact.subject": "Subject",
+          "contact.message": "Message",
+          "contact.send": "Send Message",
+          "contact.download": "Download CV",
+          "footer.copyright":
+            "&copy; " +
+            new Date().getFullYear() +
+            " Leanderson Monteiro. All rights reserved.",
+          "form.success": "Thank you! Your message has been sent successfully.",
+          "download.start": "The CV download will start soon...",
+          "download.complete": "Download simulation completed!",
+        },
+        pt: {
+          "nav.home": "Início",
+          "nav.about": "Sobre",
+          "nav.skills": "Competências",
+          "nav.experience": "Experiência",
+          "nav.contact": "Contacto",
+          "hero.education": "Licenciatura em Informática",
+          "about.title": "Sobre Mim",
+          "about.p1":
+            "Olá! Sou Leanderson Monteiro, apaixonado pelo mundo da tecnologia. Comecei a minha jornada em informática em Janeiro de 2010 e concluí o curso em Dezembro de 2014.",
+          "about.p2":
+            "Sou proativo, tenho sentido de responsabilidade e gosto de participar desde o início do projeto, incluindo o planeamento, arquitetura, desenvolvimento, entrega e manutenção. Já trabalhei em vários projetos em andamento onde tive fácil adaptação.",
+          "about.p3":
+            "Tenho conhecimentos sólidos em PHP, JavaScript e OutSystems. Tenho experiência desde 2010 em desenvolvimento de sistemas, sempre à procura de melhorar os meus conhecimentos e buscar novidades e qualidade no desenvolvimento de software.",
+          "about.birthdate": "Data de Nascimento: 10 de Junho de 1992",
+          "about.phone": "Telefone: +351 917 447 583",
+          "about.email": "Email: leanderson@lmonteiroms.com",
+          "about.location": "Localização: Lisboa, Portugal",
+          "about.website":
+            'Website: <a href="https://lmonteiroms.com" target="_blank">lmonteiroms.com</a>',
+          "skills.title": "Competências",
+          "skills.languages": "Línguas",
+          "skills.database": "Base de Dados",
+          "skills.frameworks": "Frameworks/Bibliotecas",
+          "skills.versioning": "Controlo de Versões",
+          "experience.title": "Experiência",
+          "experience.desc9":
+            "Trabalhei com a equipa de arquitetura para evoluir as plataformas, garantindo qualidade, integração, segurança e alinhamento com a metodologia ágil e requisitos técnicos.",
+          "experience.desc8":
+            "Liderança na evolução da aplicação, garantindo CI/CD, qualidade de código, performance, segurança, monitorização e alinhamento com as normas de negócios e arquitetura.",
+          "experience.desc7":
+            "Líder do backend integrando com plataformas como Booking e Rentals United, garantindo alta qualidade de código e forte cobertura de testes unitários.",
+          "experience.desc6":
+            "Desenvolvedor web mantendo as aplicações em PHP e OutSystems no Grupo Ser Educacional, também envolvido na migração da aplicação PHP para a plataforma OutSystems.",
+          "experience.desc5":
+            "Focado no backend, migrei o Laravel 4.x para 5.x, criei API RESTful, integrei com AWS S3 e Elasticsearch, utilizando MySQL e MongoDB para melhorar a performance.",
+          "experience.desc4":
+            "Liderei três projetos em PHP desde a sua concepção até à entrega, garantindo qualidade e orientando uma equipa sénior nova na stack numa fábrica de software.",
+          "experience.desc1":
+            "Desenvolvedor web no Grupo Ser Educacional, mantendo aplicações e criando funcionalidades; primeira experiência com OutSystems num dos primeiros projetos do grupo.",
+          "experience.desc2":
+            "Desenvolvedor full stack responsável pela manutenção de sistemas de clientes e pelo desenvolvimento de novas funcionalidades adaptadas às suas necessidades.",
+          "experience.desc3":
+            "Desenvolvi sistemas de almoxarifado e de gestão de documentos utilizando PHP, HTML, MySQL e JS, ao mesmo tempo que prestava suporte técnico.",
+          "experience.clickForDetails": "Clique para detalhes",
+          "experience.hideDetails": "Ocultar detalhes",
+          "experience.details9.1":
+            "Trabalhei com a equipa de arquitetura, contribuindo para a evolução e governação das plataformas tecnológicas que suportam o desenvolvimento da empresa. Ajudando a definir as melhores práticas, realizar auditorias e treinar as equipas para garantir qualidade de código e alinhamento arquitetónico. Colaborei com a equipa de arquitetura na definição da base da plataforma digital, implementação de componentes reutilizáveis e garantindo integração com os sistemas principais de negócios. Participei na evolução dos requisitos não funcionais, como autenticação e autorização, enquanto melhorava a fiabilidade da infraestrutura através de ferramentas de testes e deteção automatizada de anomalias.",
+          "experience.details9.2":
+            "Ajudámos na gestão de arquivamento de dados e mascaramento em ambientes não produtivos, coordenámos reuniões de governação e monitorizámos KPIs para garantir conformidade com os standards do setor. Trabalhei com equipas multifuncionais na gestão de ambientes e contribui para a melhoria contínua dos processos de DevOps, assegurando alinhamento total com a metodologia ágil, segurança e requisitos de performance.",
+          "experience.details8.1":
+            "Como Engenheiro de Software, sou responsável por garantir a qualidade de todos os entregáveis técnicos dentro da aplicação, aplicando sólidos princípios de engenharia de software no design, desenvolvimento, manutenção, testes e avaliação. Asseguro que a aplicação atenda às expectativas de performance e aos SLAs definidos pelo negócio, enquanto tenho um entendimento profundo da sua arquitetura técnica, infraestrutura e contexto funcional. Faço a evolução técnica do sistema, promovendo um ambiente pronto para CI/CD e garantindo a conformidade com as diretrizes de segurança, desenvolvimento, arquitetura e continuidade de negócios — incluindo a resolução de vulnerabilidades de segurança. Identifico ativamente e gerencio a dívida técnica, apoiando o Product Owner na priorização de melhorias e asseguro alinhamento com os Platform Experts e Solution Masters para seguir os frameworks estabelecidos e melhores práticas definidas pela EDP. Supervisiono a documentação da aplicação e as configurações de CI no ServiceNow (CMDB), monitorizo custos de infraestrutura e consumo de recursos, e defino os mecanismos de monitorização e alerta necessários para apoiar as operações pelo centro de comando. Em paralelo, contribuo para o desenvolvimento do sistema juntamente com a equipa, garantindo a qualidade do código e os padrões dos projetos.",
+          "experience.details7.1":
+            "Principalmente responsável pelo desenvolvimento do backend, trabalhei em integrações com várias plataformas de aluguer de habitação, como Booking e Rentals United, entre outras. Assegurei consistentemente uma alta qualidade de código, mantendo uma cobertura sólida do backend com testes unitários.",
+          "experience.details6.1":
+            "Trabalhei como desenvolvedor web, focado no desenvolvimento de novas funcionalidades e manutenção de todas as aplicações do Grupo Ser Educacional. Na altura, a maioria dos sistemas do grupo estavam construídos com OutSystems, mas uma aplicação ainda estava em PHP. Fui responsável por manter as aplicações PHP e OutSystems, e também contribui nas primeiras fases de migração da aplicação PHP para a plataforma OutSystems.",
+          "experience.details5.1":
+            "Focado principalmente no desenvolvimento do backend, mantive o código existente e contribui na migração do Laravel 4.x para 5.x, desacoplando o backend do frontend e criando uma API RESTful. Também integrei o sistema com o AWS S3 e Elasticsearch. Para melhorar a performance, a aplicação utilizou bases de dados MySQL e MongoDB.",
+          "experience.details4.1":
+            "Como Engenheiro de Software e Tech Lead, tive a oportunidade de liderar três projetos desde a concepção até à entrega ao cliente final. O principal desafio foi garantir alta qualidade nos primeiros projetos da fábrica de software utilizando a stack PHP, enquanto apoiava uma equipa sénior que, apesar da sua experiência, estava a trabalhar com esta stack pela primeira vez.",
+          "experience.details1.1":
+            "Trabalhei como desenvolvedor web, desenvolvendo novas funcionalidades e mantendo todas as aplicações para o Grupo Ser Educacional. Durante este período, também tive o meu primeiro contacto com a plataforma OutSystems, contribuindo para um dos primeiros projetos do grupo construídos com ela.",
+          "experience.details2.1":
+            "Trabalhando como desenvolvedor full stack na altura, as minhas principais responsabilidades incluíam manter os sistemas dos clientes e desenvolver novas funcionalidades com base nas suas necessidades.",
+          "experience.details3.1":
+            "Primeiros sistemas desenvolvidos, com principal responsabilidade em suporte técnico, ao mesmo tempo em que implementava sistemas com PHP, HTML, MySQL, CSS e JavaScript. Foram criados dois sistemas: um para gestão de almoxarifado e outro para submissão de documentos para o atendimento ao cliente.",
+          "contact.title": "Contacto",
+          "contact.name": "Nome",
+          "contact.email": "Email",
+          "contact.subject": "Assunto",
+          "contact.message": "Mensagem",
+          "contact.send": "Enviar Mensagem",
+          "contact.download": "Baixar CV",
+          "footer.copyright":
+            "&copy; " +
+            new Date().getFullYear() +
+            " Leanderson Monteiro. Todos os direitos reservados.",
+          "form.success": "Obrigado! A sua mensagem foi enviada com sucesso.",
+          "download.start": "O download do CV começará em breve...",
+          "download.complete": "Simulação de download concluída!",
+        },
+      };
+
+      // DOM elements
+      const enBtn = document.getElementById("en-btn");
+      const ptBtn = document.getElementById("pt-btn");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navMenu = document.getElementById("navMenu");
+      const downloadCVBtn = document.querySelector(".downloadCV");
+      const backToTopBtn = document.getElementById("backToTop");
+      const timelineContents = document.querySelectorAll(".timeline-content");
+
+      // Set default language from localStorage or default to English
+      let currentLanguage = localStorage.getItem("language") || "en";
+      document.documentElement.lang = currentLanguage;
+
+      // Function to update UI with selected language
+      function updateLanguage(lang) {
+        currentLanguage = lang;
+        localStorage.setItem("language", lang);
+        document.documentElement.lang = lang;
+
+        // Update language buttons
+        enBtn.classList.toggle("active", lang === "en");
+        ptBtn.classList.toggle("active", lang === "pt");
+
+        // Update all translatable elements
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            if (key.includes("website") || key.includes("copyright")) {
+              element.innerHTML = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+
+        // Update expand indicators based on expanded state
+        document.querySelectorAll(".timeline-content").forEach((content) => {
+          const isExpanded = content.classList.contains("expanded");
+          const indicator = content.querySelector(".expand-indicator span");
+          if (indicator) {
+            indicator.textContent = isExpanded
+              ? translations[lang]["experience.hideDetails"]
+              : translations[lang]["experience.clickForDetails"];
+          }
+        });
+      }
+
+      // Initialize language
+      updateLanguage(currentLanguage);
+
+      // Language switcher event listeners
+      enBtn.addEventListener("click", () => updateLanguage("en"));
+      ptBtn.addEventListener("click", () => updateLanguage("pt"));
+
+      // Mobile Menu Toggle
+      mobileMenuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      // Experience card click handlers
+      timelineContents.forEach((content) => {
+        content.addEventListener("click", function () {
+          const expId = this.getAttribute("data-exp-id");
+          const details = document.getElementById(`details-${expId}`);
+          const indicator = this.querySelector(".expand-indicator span");
+          const icon = this.querySelector(".expand-indicator i");
+
+          // Toggle expanded state
+          this.classList.toggle("expanded");
+          const isExpanded = this.classList.contains("expanded");
+
+          // Toggle details visibility with animation
+          if (isExpanded) {
+            details.classList.add("show");
+            indicator.textContent =
+              translations[currentLanguage]["experience.hideDetails"];
+            icon.style.transform = "rotate(180deg)";
+          } else {
+            details.classList.remove("show");
+            indicator.textContent =
+              translations[currentLanguage]["experience.clickForDetails"];
+            icon.style.transform = "rotate(0deg)";
+          }
+        });
+      });
+
+      // Smooth Scrolling for Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          navMenu.classList.remove("show");
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Back to Top Button
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add("visible");
+        } else {
+          backToTopBtn.classList.remove("visible");
+        }
+      });
+
+      // Add active class to navigation items based on scroll position
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("nav ul li a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (window.pageYOffset >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
