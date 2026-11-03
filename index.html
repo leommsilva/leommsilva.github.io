@@ -748,6 +748,11 @@
         }
       }
     
+      .info-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.35; }
+      .info-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+      .info-value { font-size: 0.95rem; font-weight: 500; }
+      .info-email { overflow-wrap: anywhere; }
+
       /* ===== Alternative layout: fixed sidebar ===== */
       .sidebar {
         position: fixed;
@@ -900,22 +905,33 @@
           <div class="about-info">
             <div class="info-item">
               <i class="fas fa-calendar"></i>
-              <span data-i18n="about.birthdate"
-                >Date of Birth: June 10, 1992</span
-              >
+              <div class="info-text">
+                <span class="info-label" data-i18n="about.birthdate">Date of Birth</span>
+                <span class="info-value" data-i18n="about.birthdate.value">June 10, 1992</span>
+              </div>
             </div>
             <div class="info-item">
               <i class="fas fa-phone"></i>
-              <span data-i18n="about.phone">Phone: +351 917 447 583</span>
+              <div class="info-text">
+                <span class="info-label" data-i18n="about.phone">Phone</span>
+                <span class="info-value">+351 917 447 583</span>
+              </div>
             </div>
             <div class="info-item">
               <i class="fas fa-envelope"></i>
-              <span data-i18n="about.email">Email: leommsilva92@gmail.com</span>
+              <div class="info-text">
+                <span class="info-label" data-i18n="about.email">Email</span>
+                <span class="info-value info-email">leommsilva92@gmail.com</span>
+              </div>
             </div>
             <div class="info-item">
               <i class="fas fa-map-marker-alt"></i>
-              <span data-i18n="about.location">Location: Lisbon, Portugal</span>
+              <div class="info-text">
+                <span class="info-label" data-i18n="about.location">Location</span>
+                <span class="info-value" data-i18n="about.location.value">Lisbon, Portugal</span>
+              </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -1708,10 +1724,12 @@
             "I have over 15 years of experience in software development. My path includes roles as full stack developer, tech lead, and software architect, across insurance, energy, and education. I have solid knowledge of PHP, Python, JavaScript, and OutSystems, plus hands-on experience with GCP and AWS.",
           "about.p3":
             "I like to be involved from the very beginning of a project, from planning and architecture to delivery and maintenance, always focused on quality, good practices, and business results. I'm proactive, I take responsibility, and I'm always looking to learn more.",
-          "about.birthdate": "Date of Birth: June 10, 1992",
-          "about.phone": "Phone: +351 917 447 583",
-          "about.email": "Email: leommsilva92@gmail.com",
-          "about.location": "Location: Lisbon, Portugal",
+          "about.birthdate": "Date of Birth",
+          "about.birthdate.value": "June 10, 1992",
+          "about.phone": "Phone",
+          "about.email": "Email",
+          "about.location": "Location",
+          "about.location.value": "Lisbon, Portugal",
           "skills.title": "Skills",
           "skills.languages": "Languages",
           "skills.database": "Database",
@@ -1816,10 +1834,12 @@
             "Tenho mais de 15 anos de experiência em desenvolvimento de software. O meu percurso passou por funções de full stack developer, tech lead e arquiteto de software, em áreas como seguros, energia e educação. Tenho conhecimentos sólidos em PHP, Python, JavaScript e OutSystems, e experiência prática com GCP e AWS.",
           "about.p3":
             "Gosto de participar desde o início dos projetos, do planeamento e da arquitetura até à entrega e manutenção, sempre com foco em qualidade, boas práticas e resultados de negócio. Sou proativo, assumo responsabilidade e procuro continuamente aprender mais.",
-          "about.birthdate": "Data de Nascimento: 10 de Junho de 1992",
-          "about.phone": "Telefone: +351 917 447 583",
-          "about.email": "Email: leommsilva92@gmail.com",
-          "about.location": "Localização: Lisboa, Portugal",
+          "about.birthdate": "Data de Nascimento",
+          "about.birthdate.value": "10 de Junho de 1992",
+          "about.phone": "Telefone",
+          "about.email": "Email",
+          "about.location": "Localização",
+          "about.location.value": "Lisboa, Portugal",
           "skills.title": "Competências",
           "skills.languages": "Línguas",
           "skills.database": "Base de Dados",
