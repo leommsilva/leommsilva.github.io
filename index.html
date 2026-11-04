@@ -822,6 +822,85 @@
         main { margin-left: 0; }
         .skill-card { grid-template-columns: 1fr; gap: 10px; }
       }
+
+      .print-header { display: none; }
+
+      /* ===== Print: clean CV generated from the page ===== */
+      @page { size: A4; margin: 13mm 15mm; }
+      @media print {
+        :root,
+        :root[data-theme="dark"] {
+          --bg: #fff; --surface: #fff; --surface-2: #f4f4f5; --text: #111;
+          --muted: #444; --border: #d4d4d8; --accent: #1e40af;
+          --accent-soft: #eef2ff;
+        }
+        * { box-shadow: none !important; transition: none !important; }
+        html, body { background: #fff; }
+        body { font-size: 9.2pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .sidebar, #github, footer, .back-to-top, .about-info, .expand-indicator,
+        #home { display: none !important; }
+        main { margin: 0; }
+        .container { max-width: none; padding: 0; }
+        main section, main section:first-child { padding: 8px 0 0; }
+
+        .print-header { display: block; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+        .print-header h1 { font-size: 22pt; line-height: 1.1; letter-spacing: -0.02em; }
+        .ph-role { font-size: 11pt; font-weight: 500; color: var(--accent); margin: 2px 0 4px; }
+        .ph-contact { font-size: 8.4pt; color: var(--muted); }
+        .ph-contact span { white-space: nowrap; }
+        .ph-contact span:not(:last-child)::after { content: "·"; margin: 0 5px; }
+
+        .section-title { margin-bottom: 5px; }
+        .section-title h2 {
+          font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em;
+          color: var(--accent); display: block; border-bottom: 1px solid var(--border);
+          padding-bottom: 2px;
+        }
+        .section-title h2::after { display: none; }
+
+        .about-content { display: block; }
+        .about-text p { font-size: 9.2pt; color: var(--text); margin-bottom: 4px; }
+
+        .skills-container { grid-template-columns: 1fr 1fr; gap: 3px 22px; }
+        .skill-card {
+          display: block; padding: 0; border: 0; background: none;
+          break-inside: avoid;
+        }
+        .skill-card h3 { font-size: 8pt; margin: 0 0 1px; }
+        .skill-card ul { display: block; }
+        .skill-card ul li {
+          display: inline; padding: 0; border: 0; background: none; font-size: 8.8pt;
+        }
+        .skill-card ul li:not(:last-child)::after { content: " · "; color: var(--muted); }
+
+        .experience-timeline { padding: 0; }
+        .timeline-item { margin-bottom: 7px; break-inside: avoid; }
+        .timeline-content {
+          padding: 0 0 0 10px; border: 0; border-left: 2px solid var(--accent);
+          border-radius: 0; background: none; transform: none !important;
+        }
+        .timeline-date { background: none; padding: 0; font-size: 8.5pt; color: var(--muted); }
+        .timeline-title { display: inline; font-size: 10pt; margin: 0; }
+        .timeline-company { display: inline; font-size: 9.5pt; margin: 0 0 0 4px; }
+        .timeline-company::before { content: "· "; }
+        .timeline-company a { color: var(--muted); text-decoration: none; }
+        .timeline-summary { font-size: 9pt; color: var(--text); margin-top: 1px; }
+
+        /* full details only for the most recent roles; older ones keep the summary */
+        .timeline-details {
+          display: none; opacity: 1; transform: none; border: 0;
+          margin-top: 2px; padding-top: 0; font-size: 8.8pt;
+        }
+        .timeline-item:nth-child(-n + 4) .timeline-details { display: block; }
+        .timeline-details ul li { color: var(--text); margin-bottom: 2px; padding-left: 12px; }
+        /* drop paragraphs that repeat the summary or are too long for a CV */
+        [data-i18n="experience.details11.1"],
+        [data-i18n="experience.details10.1"],
+        [data-i18n="experience.details9.2"],
+        [data-i18n="experience.details8.1"] { display: none; }
+        .timeline-tech { margin-top: 3px; gap: 4px; }
+        .tech-tag { font-size: 7.6pt; padding: 0 6px; border: 1px solid var(--border); background: none; color: var(--muted); }
+      }
 </style>
   </head>
 
@@ -860,10 +939,9 @@
               </li>
               <li>
                 <a
-                  href="cv/profile_leanderson_monteiro.pdf"
+                  href="javascript:void(0)"
                   class="downloadCV"
                   data-i18n="contact.download"
-                  target="_blank"
                   >Download CV</a
                 >
               </li>
@@ -884,6 +962,17 @@
     </aside>
 
     <main>
+    <div class="print-header">
+      <h1>Leanderson Monteiro</h1>
+      <p class="ph-role">Team Manager | Software Architect | Tech Leader</p>
+      <p class="ph-contact">
+        <span data-i18n="about.location.value">Lisbon, Portugal</span>
+        <span>+351 917 447 583</span>
+        <span>leommsilva92@gmail.com</span>
+        <span>linkedin.com/in/leommsilva</span>
+        <span>github.com/leommsilva</span>
+      </p>
+    </div>
     <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
@@ -1087,7 +1176,7 @@
           <!-- Experience 11 -->
           <div class="timeline-item">
             <div class="timeline-content" data-exp-id="exp11">
-              <div class="timeline-date">01/2026 - Present</div>
+              <div class="timeline-date">01/2026 - <span data-i18n="experience.present">Present</span></div>
               <h3 class="timeline-title">Team Manager</h3>
               <div class="timeline-company">
                 <a
@@ -1200,7 +1289,7 @@
                 <a
                   href="https://www.linkedin.com/company/fidelidade"
                   target="_blank"
-                  >Fidelidade (Outsourced by 5Estações)</a
+                  >Fidelidade (<span data-i18n="experience.outsourced">Outsourced by</span> 5Estações)</a
                 >
               </div>
               <p class="timeline-summary" data-i18n="experience.desc9">
@@ -1271,7 +1360,7 @@
               </h3>
               <div class="timeline-company">
                 <a href="https://www.linkedin.com/company/edp" target="_blank"
-                  >EDP (Outsourced by Novabase)</a
+                  >EDP (<span data-i18n="experience.outsourced">Outsourced by</span> Novabase)</a
                 >
               </div>
               <p class="timeline-summary" data-i18n="experience.desc8">
@@ -1672,10 +1761,9 @@
             <a href="#github" data-i18n="nav.github">GitHub</a>
             <a href="#experience" data-i18n="nav.experience">Experience</a>
             <a
-              href="cv/profile_leanderson_monteiro.pdf"
+              href="javascript:void(0)"
               class="downloadCV"
               data-i18n="contact.download"
-              target="_blank"
               >Download CV</a
             >
           </div>
@@ -1765,6 +1853,8 @@
           "experience.desc3":
             "Developed inventory and document handling systems using PHP, HTML, MySQL, and JS, while also providing technical support.",
           "experience.clickForDetails": "Click for details",
+          "experience.present": "Present",
+          "experience.outsourced": "Outsourced by",
           "experience.hideDetails": "Hide details",
           "experience.details11.1":
             "I lead a multidisciplinary team focused on developing and scaling strategic initiatives within the real estate sector. I am responsible for turning vision into execution, ensuring strong alignment between business strategy, product direction, and technology. I oversee multiple initiatives, from established projects to new ventures in early-stage development, with a focus on sustainable growth, operational efficiency, and value creation.",
@@ -1875,6 +1965,8 @@
           "experience.desc3":
             "Desenvolvi sistemas de almoxarifado e de gestão de documentos utilizando PHP, HTML, MySQL e JS, ao mesmo tempo que prestava suporte técnico.",
           "experience.clickForDetails": "Clique para detalhes",
+          "experience.present": "Atual",
+          "experience.outsourced": "Outsourcing pela",
           "experience.hideDetails": "Ocultar detalhes",
           "experience.details11.1":
             "Lidero uma equipa multidisciplinar focada no desenvolvimento e escala de iniciativas estratégicas no setor imobiliário. Sou responsável por transformar a visão em execução, garantindo um forte alinhamento entre a estratégia de negócio, a direção de produto e a tecnologia. Superviso várias iniciativas, desde projetos consolidados a novos negócios em fase inicial, com foco em crescimento sustentável, eficiência operacional e criação de valor.",
@@ -2065,6 +2157,18 @@
                 ).style.display = "none"),
             );
         });
+
+      // "Download CV": prints the page with the clean CV stylesheet (Save as PDF),
+      // in whichever language is currently selected
+      document.querySelectorAll(".downloadCV").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const title = document.title;
+          document.title =
+            "Leanderson Monteiro - CV (" + currentLanguage.toUpperCase() + ")";
+          window.print();
+          document.title = title;
+        });
+      });
 
       // Mobile Menu Toggle
       mobileMenuBtn.addEventListener("click", () => {
